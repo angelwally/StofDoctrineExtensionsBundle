@@ -60,7 +60,7 @@ class LoggerListener implements EventSubscriberInterface
         $token = $this->tokenStorage->getToken();
 
         if (null !== $token && $this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $this->loggableListener->setUsername($token);
+            $this->loggableListener->setUser($token->getUser());
         }
     }
 
